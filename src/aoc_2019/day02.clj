@@ -35,17 +35,17 @@
                (when (= (run-program program noun verb) target)
                  [noun verb])))))
 
-(defn part01 []
+(defn part1 []
   (run-program program 12 2))
 
-(defn part02 []
+(defn part2 []
   (let [[noun verb] (find-noun-verb program 19690720)]
     (+ (* 100 noun) verb)))
 
 (comment
 
-  (part01)
+  (part1)
 
-  (part02)
+  (part2)
 
   )
