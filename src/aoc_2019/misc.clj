@@ -26,9 +26,14 @@
                     (recur state)))
                 state))))))))
 
+(defn- ns-right []
+  (-> *ns* str (str/split #"\.") second))
+
 (defn reducible-input []
-  (let [[_ ns-right] (-> *ns* str (str/split #"\."))]
-    (lines-in (io/resource (str ns-right ".txt")))))
+  (lines-in (io/resource (str (ns-right) ".txt"))))
+
+(defn slurped-input []
+  (slurp (io/resource (str (ns-right) ".txt"))))
 
 (defn parse-long [s]
   (Long/parseLong s))
